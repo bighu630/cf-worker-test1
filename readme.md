@@ -46,6 +46,7 @@ curl -X GET https://api.telegram.org/bot{my_bot_token}/setWebhook?url={url_to_se
 ```
 
 my_bot_token是上面的bot_token (注意前`bot` 需要带上，中括号不需要)
+
 url_to_send_updates_to是cf给的worker地址
 
 具体细节可以参考：<https://xabaras.medium.com/setting-your-telegram-bot-webhook-the-easy-way-c7577b2d6f72>
