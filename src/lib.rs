@@ -25,6 +25,18 @@ async fn fetch(
                             .expect("failed to send message");
                     }
                 }
+            }else if let UpdateKind::ChannelPost { channel_post } = update.kind{
+                if let Some(text) = channel_post.kind.text() {
+                    console_log!("{}", text);
+                    let api = ctx.data();
+                    let mut rng = rand::thread_rng();
+                    let random_number = rng.gen_range(0..=100);
+                    if random_number < 10 {
+                        api.send_json(&channel_post.reply_text(text))
+                            .await
+                            .expect("failed to send message");
+                    } 
+                }
             }
             Response::empty()
         }).run(_req, _env).await
