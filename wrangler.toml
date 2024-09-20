@@ -1,0 +1,11 @@
+name = "cf-worker-test1"
+type = "javascript"
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-09-20"
+
+[build]
+command = "cargo install -q worker-build --version ^0.0.7 && worker-build --release"
+
+[[build.upload.rules]]
+globs = ["**/*.wasm"]
+type = "CompiledWasm"
